@@ -15,7 +15,7 @@ type CouncilMember = {
   image?: string | null;
 };
 
-const API_BASE = import.meta.env.VITE_API_BASE || '/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 const MEDIA_BASE = import.meta.env.VITE_MEDIA_BASE || '/media';
 
 const resolveMemberImage = (member: any) => {
