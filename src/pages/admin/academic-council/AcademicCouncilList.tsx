@@ -24,8 +24,8 @@ export default function AcademicCouncilList() {
   const queryClient = useQueryClient();
   const exportGridRef = useRef<HTMLDivElement>(null);
 
-  const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
-  const MEDIA_BASE_URL = API_BASE_URL.replace(/\/api$/, '') + '/media';
+  const API_BASE = import.meta.env.VITE_API_BASE || '/api';
+  const MEDIA_BASE = import.meta.env.VITE_MEDIA_BASE || '/media';
 
   const resolveMemberImage = (member: any) => {
     if (member?.image_url) {
@@ -34,7 +34,7 @@ export default function AcademicCouncilList() {
 
     if (member?.image) {
       const sanitized = String(member.image).replace(/^\/+/, '');
-      return `${MEDIA_BASE_URL}/${sanitized}`;
+      return `${MEDIA_BASE}/${sanitized}`;
     }
 
     return undefined;
